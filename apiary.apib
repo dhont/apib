@@ -1,80 +1,124 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
 
-# monitorizarevot
+# API V1
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+## Group Values
 
-## Questions Collection [/questions]
+### /api/Values
 
-### List All Questions [GET]
+#### GET
 
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
++ Request
 
     + Headers
 
-            Location: /questions/2
+            Accept: application/json
 
     + Body
 
++ Response 200 (application/json)
+
+    Success
+
+    + Body
+
+            [
+              "in cupidatat qui",
+              "laborum est ullamco proident",
+              "in aute"
+            ]
+
+    + Schema
+
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
+
+#### POST
+
++ Request (application/json)
+
+    + Body
+
+            exercitation
+
+    + Schema
+
+            {
+              "type": "string"
+            }
+
++ Response 200
+
+    Success
+
+    + Body
+
+### /api/Values/{id}
+
+#### GET
+
++ Parameters
+
+    + id (required)
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+    + Body
+
++ Response 200 (application/json)
+
+    Success
+
+    + Body
+
+            velit occaecat est et anim
+
+    + Schema
+
+            {
+              "type": "string"
+            }
+
+#### PUT
+
++ Parameters
+
+    + id (required)
+
++ Request (application/json)
+
+    + Body
+
+            sit qui
+
+    + Schema
+
+            {
+              "type": "string"
+            }
+
++ Response 200
+
+    Success
+
+    + Body
+
+#### DELETE
+
++ Parameters
+
+    + id (required)
+
++ Response 200
+
+    Success
+
+    + Body
